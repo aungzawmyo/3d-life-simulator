@@ -1,0 +1,14 @@
+{
+  "name": "3d-life-simulator",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Systems-driven human life simulation. The world continues.",
+  "packageManager": "pnpm@11.5.0",
+  "scripts": {
+    "dev": "pnpm --filter @life/web dev",
+    "build": "pnpm --filter @life/web build",
+    "simulate": "pnpm --filter @life/simulate start",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --filter @life/simulation-core test"
+  }
+}

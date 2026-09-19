@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #10140f;
+  --panel: #181e18;
+  --panel-2: #1f261f;
+  --line: #2c352b;
+  --ink: #e7eadc;
+  --muted: #8d9586;
+  --accent: #d7a45a;
+  --health: #74c28a;
+  --energy: #e0c36a;
+  --stress: #d36b56;
+  --link: #8eb4d4;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+.display {
+  font-family: "Newsreader", "Times New Roman", serif;
+}
+
+.scan {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a4338;
+  border-radius: 99px;
+}

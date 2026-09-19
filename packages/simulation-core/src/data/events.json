@@ -1,0 +1,25 @@
+[
+  {
+    "id": "scholarship",
+    "text": "{name} was offered a small scholarship.",
+    "probability": 0.02,
+    "minAge": 16,
+    "maxAge": 24,
+    "inSchool": true,
+    "effects": { "cash": 8000, "confidence": 6 }
+  },
+  {
+    "id": "side_gig",
+    "text": "{name} picked up a short freelance job.",
+    "probability": 0.03,
+    "minAge": 18,
+    "effects": { "cash": 3500, "stress": 3 }
+  },
+  {
+    "id": "neighbor_dinner",
+    "text": "{name} was invited to a neighbor's dinner.",
+    "probability": 0.04,
+    "minAge": 12,
+    "effects": { "belonging": 5, "entertainment": -8 }
+  }
+]

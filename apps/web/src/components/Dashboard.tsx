@@ -11,6 +11,7 @@ import {
   type Person,
   type SimSpeed,
 } from "@life/simulation-core";
+import Link from "next/link";
 import { useState } from "react";
 import { useSimLoop } from "@/hooks/useSimLoop";
 import { activityTone, initials, money } from "@/lib/format";
@@ -44,6 +45,9 @@ export function Dashboard() {
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-[#2c352b] px-4 py-3">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
           <span className="display text-lg tracking-tight">Ari, {world.city.name}</span>
+          <Link href="/alife" className="text-[11px] uppercase tracking-wider text-[#8eb4d4] hover:text-[#e7eadc]">
+            A-Life
+          </Link>
           <span className="text-[#8d9586]">
             {person ? `${Math.floor(person.ageYears)} yrs` : "—"} · {WEEKDAYS[world.clock.weekday]} ·{" "}
             {String(world.clock.hour).padStart(2, "0")}:{String(world.clock.minute).padStart(2, "0")}

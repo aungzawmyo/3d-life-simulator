@@ -8,6 +8,7 @@
     "dev": "pnpm --filter @life/web dev",
     "build": "pnpm --filter @life/web build",
     "simulate": "pnpm --filter @life/simulate start",
+    "alife": "pnpm --filter @life/simulate start -- --alife --ticks 400 --verbose",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm --filter @life/simulation-core test"
   }

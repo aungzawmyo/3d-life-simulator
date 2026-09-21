@@ -1,4 +1,4 @@
-import { SimulationEngine, fullName, lifeStage } from "@life/simulation-core";
+import { ALifeEngine, SimulationEngine, fullName, lifeStage } from "@life/simulation-core";
 
 function arg(name: string, fallback: string): string {
   const index = process.argv.indexOf(`--${name}`);
@@ -8,6 +8,46 @@ function arg(name: string, fallback: string): string {
 
 function flag(name: string): boolean {
   return process.argv.includes(`--${name}`);
+}
+
+function runALife(): void {
+  const ticks = Number(arg("ticks", "400"));
+  const starters = Number(arg("starters", "16"));
+  const seed = Number(arg("seed", "2026"));
+  const verbose = flag("verbose");
+  const engine = new ALifeEngine({ seed, starters });
+  const started = Date.now();
+  const reportEvery = Math.max(1, Math.floor(ticks / 10));
+
+  for (let i = 0; i < ticks; i += 1) {
+    engine.step(1);
+    if (verbose && engine.world.tick % reportEvery === 0) {
+      const s = engine.summary();
+      console.log(
+        `tick ${String(s.tick).padStart(5)}  living=${s.living}  seeds=${s.seeds}  energy=${s.meanEnergy.toFixed(1)}  gen=${s.generations}  born=${s.births}  dead=${s.deaths}`,
+      );
+    }
+  }
+
+  const ms = Date.now() - started;
+  const summary = engine.summary();
+  console.log("\n3d-life-simulator · artificial life");
+  console.log("────────────────────────────────────────");
+  console.log(`tick         ${summary.tick}`);
+  console.log(`living       ${summary.living} (${summary.seeds} seeds)`);
+  console.log(`energy       ${summary.meanEnergy.toFixed(1)}`);
+  console.log(`health       ${summary.meanHealth.toFixed(1)}`);
+  console.log(`branch °     ${summary.meanBranchAngle.toFixed(1)}`);
+  console.log(`efficiency   ${summary.meanEfficiency.toFixed(2)}`);
+  console.log(`births       ${summary.births}`);
+  console.log(`deaths       ${summary.deaths}`);
+  console.log(`generations  ${summary.generations}`);
+  console.log(`elapsed      ${ms}ms`);
+}
+
+if (flag("alife")) {
+  runALife();
+  process.exit(0);
 }
 
 const population = Number(arg("population", "20"));

@@ -16,4 +16,16 @@ export {
   spouseOf,
 } from "./life";
 export { Rng } from "./rng";
+export {
+  ALifeEngine,
+  GOLDEN_ANGLE,
+  crossover,
+  fibonacci,
+  goldenHeading,
+  growthThreshold,
+  logistic,
+  mutate,
+  seedGenome,
+} from "./alife";
+export type { ALifeOptions, ALifeSummary, ALifeWorld, Genome, LifeNode, LifeState } from "./alife";
 export type * from "./types";
